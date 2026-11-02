@@ -5,6 +5,9 @@
 PocketWise is a student-focused personal finance tracker designed to help students manage their money, monitor spending habits, and set monthly financial goals.
 
 **Live Demo:** https://feddoraa.github.io/PocketWise/
+## Preview
+
+![PocketWise Desktop Dashboard](pocketwise-desktop.png)
 
 ## Features
 
