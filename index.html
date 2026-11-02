@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f6f8fb" />
+  <meta name="description" content="PocketWise, a simple student budget and expense tracker." />
+  <title>PocketWise | Student Finance Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="PocketWise home">
+        <span class="brand-icon" aria-hidden="true">◈</span>
+        <span>Pocket<span class="brand-accent">Wise</span></span>
+      </a>
+      <span class="header-note"><span class="status-dot"></span> A little clarity goes a long way</span>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <span class="eyebrow">YOUR MONEY, MADE SIMPLE</span>
+          <h1 id="hero-title">Take control of your<br /><em>student budget.</em></h1>
+          <p>See where your money goes, stay on top of your spending, and make every dinar count.</p>
+        </div>
+        <div class="month-control">
+          <label for="monthPicker">Viewing month</label>
+          <input id="monthPicker" type="month" aria-label="Choose month to view" />
+        </div>
+      </section>
+
+      <section class="summary-grid" aria-label="Monthly financial summary">
+        <article class="stat-card card-income">
+          <div class="stat-top"><span>Income</span><span class="stat-icon" aria-hidden="true">↗</span></div>
+          <strong id="incomeTotal" class="stat-value">JOD 0.000</strong>
+          <span class="stat-foot">Money coming in this month</span>
+        </article>
+        <article class="stat-card card-expense">
+          <div class="stat-top"><span>Expenses</span><span class="stat-icon" aria-hidden="true">↘</span></div>
+          <strong id="expenseTotal" class="stat-value">JOD 0.000</strong>
+          <span class="stat-foot">Money spent this month</span>
+        </article>
+        <article class="stat-card card-balance">
+          <div class="stat-top"><span>Monthly net</span><span class="stat-icon" aria-hidden="true">◎</span></div>
+          <strong id="netTotal" class="stat-value">JOD 0.000</strong>
+          <span class="stat-foot">Monthly income minus expenses</span>
+        </article>
+      </section>
+
+      <div class="main-grid">
+        <div class="left-column">
+          <section class="panel" aria-labelledby="transactions-heading">
+            <div class="panel-heading">
+              <div><span class="eyebrow">YOUR ACTIVITY</span><h2 id="transactions-heading">Transactions</h2></div>
+              <button id="demoButton" type="button" class="button button-secondary">Try sample data</button>
+            </div>
+            <div class="filter-row">
+              <label class="search-wrap">
+                <span class="sr-only">Search transactions</span>
+                <span aria-hidden="true">⌕</span>
+                <input id="searchInput" type="search" placeholder="Search transactions..." />
+              </label>
+              <label class="sr-only" for="typeFilter">Filter transactions by type</label>
+              <select id="typeFilter" aria-label="Filter by transaction type">
+                <option value="all">All types</option>
+                <option value="expense">Expenses</option>
+                <option value="income">Income</option>
+              </select>
+            </div>
+            <div id="transactionList" class="transaction-list" aria-live="polite"></div>
+            <div class="panel-bottom">
+              <span id="transactionCount">0 transactions</span>
+              <button id="exportButton" class="text-button" type="button">Export CSV ↗</button>
+            </div>
+          </section>
+
+          <section class="panel" aria-labelledby="breakdown-heading">
+            <div class="panel-heading">
+              <div><span class="eyebrow">WHERE IT GOES</span><h2 id="breakdown-heading">Spending by category</h2></div>
+            </div>
+            <div id="categoryBreakdown" class="breakdown-list" aria-live="polite"></div>
+          </section>
+          <section class="panel" aria-labelledby="cashflow-heading">
+
+  <div class="panel-heading">
+    <div>
+      <span class="eyebrow">MONTHLY ANALYTICS</span>
+      <h2 id="cashflow-heading">Income vs Expenses</h2>
+    </div>
+  </div>
+
+  <div class="cashflow-chart">
+
+    <div class="cashflow-item">
+      <div class="cashflow-label">
+        <span>Income</span>
+        <strong id="analyticsIncome">JOD 0.000</strong>
+      </div>
+
+      <div class="cashflow-track">
+        <span id="incomeBar" class="cashflow-fill income-fill"></span>
+      </div>
+    </div>
+
+    <div class="cashflow-item">
+      <div class="cashflow-label">
+        <span>Expenses</span>
+        <strong id="analyticsExpenses">JOD 0.000</strong>
+      </div>
+
+      <div class="cashflow-track">
+        <span id="expensesBar" class="cashflow-fill expenses-fill"></span>
+      </div>
+    </div>
+
+  </div>
+
+  <p id="topCategoryInsight" class="analytics-insight">
+    Add expenses to see your top spending category.
+  </p>
+
+</section>
+        </div>
+
+        <aside class="right-column">
+          <section class="panel form-panel" aria-labelledby="add-heading">
+            <span class="eyebrow">QUICK ENTRY</span>
+            <h2 id="add-heading">Add a transaction</h2>
+            <p class="helper">Small entries, big-picture insights.</p>
+            <form id="transactionForm">
+              <label for="typeInput">Transaction type</label>
+              <select id="typeInput" name="type" required>
+                <option value="expense">Expense</option>
+                <option value="income">Income</option>
+              </select>
+
+              <label for="nameInput">Description</label>
+              <input id="nameInput" name="description" type="text" maxlength="60" placeholder="e.g. Coffee with friends" autocomplete="off" required />
+
+              <label for="amountInput">Amount (JOD)</label>
+              <input id="amountInput" name="amount" type="number" min="0.001" max="1000000" step="0.001" placeholder="e.g. 3.500" required />
+
+              <label for="categoryInput">Category</label>
+              <select id="categoryInput" name="category" required></select>
+
+              <label for="dateInput">Date</label>
+              <input id="dateInput" name="date" type="date" required />
+
+              <button class="button button-primary" type="submit">+ Add transaction</button>
+              <p id="formMessage" class="form-message" role="status" aria-live="polite"></p>
+            </form>
+          </section>
+
+          <section class="panel budget-panel" aria-labelledby="budget-heading">
+            <span class="eyebrow">STAY ON TRACK</span>
+            <h2 id="budget-heading">Monthly budget</h2>
+            <p class="helper">Set a spending limit for the selected month.</p>
+            <form id="budgetForm" class="budget-form">
+              <label class="sr-only" for="budgetInput">Monthly budget in Jordanian dinars</label>
+              <input id="budgetInput" type="number" min="0.001" max="1000000" step="0.001" placeholder="e.g. 200.000" required />
+              <button type="submit" class="button button-dark">Save</button>
+            </form>
+            <div class="budget-numbers"><span id="budgetSpent">JOD 0.000 spent</span><span id="budgetLimit">No budget set</span></div>
+            <div class="progress-track" role="progressbar" aria-label="Monthly budget used" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="budgetProgress"><span id="budgetBar"></span></div>
+            <p id="budgetHint" class="budget-hint">Your budget progress will show up here.</p>
+          </section>
+          <section class="panel budget-panel">
+  <span class="eyebrow">BUILD YOUR FUTURE</span>
+
+  <h2>Monthly savings goal</h2>
+
+  <p class="helper">
+    Set a target for how much you want to save.
+  </p>
+
+  <form id="savingsGoalForm" class="budget-form">
+
+    <label class="sr-only" for="savingsGoalInput">
+      Savings goal in JOD
+    </label>
+
+    <input
+      id="savingsGoalInput"
+      type="number"
+      min="0.001"
+      max="1000000"
+      step="0.001"
+      placeholder="e.g. 50.000"
+      required
+    />
+
+    <button type="submit" class="button button-dark">
+      Save goal
+    </button>
+
+  </form>
+
+  <div class="budget-numbers">
+    <span id="savingsProgressText">JOD 0.000 saved</span>
+    <span id="savingsGoalText">No goal set</span>
+  </div>
+
+  <div class="progress-track"
+       id="savingsProgress"
+       role="progressbar"
+       aria-valuemin="0"
+       aria-valuemax="100"
+       aria-valuenow="0">
+
+    <span id="savingsBar"></span>
+
+  </div>
+
+  <p id="savingsHint" class="budget-hint">
+    Set your monthly savings target.
+  </p>
+
+</section>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="footer"><span>✦ PocketWise — built for students, by a student.</span><span>Data stays in this browser · No bank connection</span></footer>
+  </div>
+</body>
+</html>
