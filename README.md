@@ -1,43 +1,84 @@
 # PocketWise — Student Finance Tracker
 
-A beginner-friendly finance tracking website built with **HTML, CSS, and vanilla JavaScript**. No framework, payment, server, or account required.
+**Take control of your student budget.**
+
+PocketWise is a student-focused personal finance tracker designed to help students manage their money, monitor spending habits, and set monthly financial goals.
+
+**Live Demo:** https://feddoraa.github.io/PocketWise/
 
 ## Features
-- Record income and expenses in **Jordanian dinars (JOD)**.
-- Track monthly income, expenses, and **monthly net (income minus expenses)**.
-- Browse transactions by month, filter by type, and search.
-- See a breakdown of spending by category.
-- Set a monthly spending budget and see how much you have left.
-- Delete entries and export the selected month as CSV.
-- Click **Try sample data** to explore the interface with fake transactions.
-- Entries are saved in this browser using **localStorage**.
 
-## How to run
-1. Unzip the `student-finance-tracker.zip` file.
-2. Open the extracted folder in **Visual Studio Code**.
-3. Install the **Live Server** VS Code extension (optional but recommended).
-4. Right-click `index.html` → **Open with Live Server**. You can also open the HTML file in a browser directly.
-5. Try adding an expense, set a monthly budget, then refresh to see browser storage in action.
+- **Income & Expense Tracking:** Add and manage financial transactions.
+- **Monthly Dashboard:** View total income, expenses, and net balance.
+- **Budget Management:** Set monthly spending limits and monitor remaining budgets.
+- **Savings Goals:** Set monthly savings targets and track estimated progress.
+- **Spending Analytics:** Visualize income versus expenses and spending by category.
+- **Top Spending Category:** Identify where most of your money goes.
+- **Transaction Search & Filtering:** Find transactions and filter them by type.
+- **CSV Export:** Export transaction records for further analysis.
+- **Responsive Design:** Access the application on desktop and mobile devices.
 
-## File guide
-- `index.html` — page structure and form elements.
-- `styles.css` — color, layout, typography, and responsive design.
-- `script.js` — interaction, calculation, browser storage, and CSV export.
+## Technologies Used
 
-## Important limitations
-- This is a **learning/portfolio project**, not a bank-integrated finance service.
-- Information is stored **only in the current browser**. Clearing site data or switching devices may lose your entries. Export CSV if you want a backup.
-- GitHub Pages can host this static website. Publishing the code does **not** publish entries you've typed into your own browser.
-- No login, cloud backup, or real database in v1.
-- This is not personal financial advice.
+- HTML5 — Structure and content.
+- CSS3 — Styling and responsive layout.
+- JavaScript — Application logic and interactive features.
+- Browser Local Storage — Persistent storage of transactions and financial goals.
+- GitHub Pages — Website deployment and hosting.
 
-## Beginner learning challenge
-Change the headline in `index.html`, then change `--teal` in `styles.css`. In `script.js`, find `render()` and look at how it computes income, expenses, and net from transaction objects.
+## Getting Started
 
-## Next development ideas
-- Editing transactions.
-- Improved analytics and data visualizations.
-- Optional bilingual Arabic/English interface.
-- A backend + SQL database + authentication (only when you are ready to learn those concepts).
+You can access PocketWise directly through the live demo:
 
-Built as a practical first real-world project by a BIT student.
+https://feddoraa.github.io/PocketWise/
+
+To run it locally:
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/feddoraa/PocketWise.git
+   ```
+
+2. Open the project folder.
+3. Open `index.html` in your browser, or use the Live Server extension in VS Code.
+
+## Project Structure
+
+```text
+PocketWise/
+│
+├── index.html
+├── styles.css
+├── script.js
+├── favicon.svg
+└── README.md
+```
+
+## Data & Privacy
+
+PocketWise uses browser Local Storage to save financial records and goals.
+
+- Data stays in the user's browser.
+- Data is not synchronized between devices or browsers.
+- No bank account connection or online financial database is used.
+
+Savings progress represents estimated available funds (income minus expenses), not verified transfers into a savings account.
+
+## What I Learned
+
+Building PocketWise gave me hands-on experience with:
+
+- Developing a functional website using HTML, CSS, and JavaScript.
+- DOM manipulation and event handling.
+- Managing and storing application data using Local Storage.
+- Implementing financial calculations and interactive features.
+- Designing responsive user interfaces.
+- Using GitHub for source code management.
+- Deploying a website using GitHub Pages.
+
+## About the Project
+
+PocketWise is a personal learning project developed as part of my journey into practical web development.
+
+**Built with curiosity, learning, and a little financial wisdom. 💚**
