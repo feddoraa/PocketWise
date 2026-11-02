@@ -1,0 +1,27 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="17" fill="#18323A"/>
+
+  <!-- Wallet body -->
+  <path
+    d="M13 23V19a5 5 0 0 1 5-5h27a5 5 0 0 1 5 5v5"
+    fill="#BCE9DD"
+  />
+
+  <path
+    d="M12 25a6 6 0 0 1 6-6h28a6 6 0 0 1 6 6v22a5 5 0 0 1-5 5H18a6 6 0 0 1-6-6V25Z"
+    fill="#F8F7F0"
+  />
+
+  <!-- Front wallet pocket -->
+  <path
+    d="M12 30h40v13a5 5 0 0 1-5 5H17a5 5 0 0 1-5-5V30Z"
+    fill="#DCEFE8"
+  />
+
+  <!-- Teal clasp -->
+  <rect x="37" y="29" width="17" height="14" rx="5"
+        fill="#078F80"/>
+
+  <circle cx="45.5" cy="36" r="2.2" fill="#FFFFFF"/>
+</svg>
